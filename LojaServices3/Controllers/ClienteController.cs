@@ -78,7 +78,14 @@ namespace LojaServices3.Controllers
                 EnderecoDeEntrega = endereco
             };
 
-            var retorno = _clienteService.Salvar(cliente);
+            var retornoCliente = _clienteService.Salvar(cliente);
+
+            var retorno = new ClienteDTO()
+            {
+                Id = retornoCliente.Id,
+                Nome = retornoCliente.Nome,
+                EnderecoId = retornoCliente.EnderecoId
+            };
 
             return Ok(retorno);
         }
@@ -108,7 +115,14 @@ namespace LojaServices3.Controllers
                 EnderecoDeEntrega = endereco
             };
 
-            var retorno = _clienteService.Salvar(cliente);
+            var retornoCliente = _clienteService.Salvar(cliente);
+
+            var retorno = new ClienteDTO()
+            {
+                Id = retornoCliente.Id,
+                Nome = retornoCliente.Nome,
+                EnderecoId = retornoCliente.EnderecoId
+            };
 
             return Ok(retorno);
         }

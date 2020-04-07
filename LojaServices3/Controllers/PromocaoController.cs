@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using AutoMapper;
 using LojaServices3.Api.Models;
 using LojaServices3.DTO;
 using LojaServices3.Services;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LojaServices3.Controllers
@@ -26,23 +24,12 @@ namespace LojaServices3.Controllers
 
         // GET: api/Promocao
         [HttpGet]
-        public ActionResult<IEnumerable<PromocaoDTO>> GetAll(int? promocaoId = null)
+        public ActionResult<IEnumerable<PromocaoDTO>> GetAll()
         {
-            if (promocaoId.HasValue)
-            {
-                var promocoes = _promocaoService.ProdutosPorPromocaoId(promocaoId.Value);
-                var retorno = _mapper.Map<List<PromocaoDTO>>(promocoes);
+            return Ok(_promocaoService.ProdutosPromocoesLista().
+                Select(x => _mapper.Map<PromocaoDTO>(x)).
+                ToList());
 
-                return Ok(retorno);
-            }
-            else if (promocaoId == null)
-            {
-                return Ok(_promocaoService.ProdutosPromocoesLista().
-                    Select(x => _mapper.Map<PromocaoDTO>(x)).
-                    ToList());
-            }
-            else
-                return NoContent();
         }
 
         // GET: api/Promocao/5

@@ -8,6 +8,7 @@ namespace LojaServices3.Services
         IList<Produto> ProcurarPorCategoria(string nome);
         IList<Produto> ListarProdutos();
         Produto ProcurarPorId(int produtoId);
+        Produto ProcurarAleatório();
         Produto Salvar(Produto produto);
     }
 }

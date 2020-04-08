@@ -31,6 +31,26 @@ namespace LojaServices3.Services
             return _context.Produtos.Where(x => x.Categoria == nome).ToList();
         }
 
+        public Produto ProcurarAleatório()
+        {
+            //lista inteira de Produtos
+            var query = _context.Produtos.ToList();
+
+            // se não retronar valor na lista não retorna valor na requisição
+            if (query == null)
+                return null;
+
+            // a partir do tamanho da lista, retorna um valor aleatório que utilizaremos de index
+            var RamdomIndex = new System.Random().Next(query.Count);
+
+            // o metodo skip ignora a lista até o index passado como argumento
+            var retorno = query.Skip(RamdomIndex).FirstOrDefault();
+            
+            //retorno produto aleatorio
+            return retorno;
+        }
+
+
         public Produto Salvar(Produto produto)
         {
             //verificar se é adicionar ou alterar

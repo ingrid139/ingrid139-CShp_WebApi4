@@ -11,6 +11,7 @@ namespace LojaServices3
             CreateMap<Endereco, EnderecoDTO>().ReverseMap();
             CreateMap<Cliente, ClienteDTO>().ReverseMap();
             CreateMap<Produto, ProdutoDto>().ReverseMap();
+            CreateMap<Produto, ProdutoJSONDTO>().ReverseMap();
             CreateMap<Compra, CompraDTO>().ReverseMap();
             CreateMap<PromocaoProduto, PromocaoProdutoDTO>().ReverseMap();
             CreateMap<Promocao, PromocaoDTO>()

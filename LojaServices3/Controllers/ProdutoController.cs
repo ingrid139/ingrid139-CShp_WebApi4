@@ -72,6 +72,23 @@ namespace LojaServices3.Controllers
                 return NotFound();
         }
 
+
+        // GET: api/Produto/aleatorio
+        [HttpGet("aleatorio")]
+        public ActionResult<ProdutoJSONDTO> GetAleatorio()
+        {
+            var produto = _produtoService.ProcurarAleatório();
+
+            if (produto != null)
+            {
+                var retorno = _mapper.Map<ProdutoJSONDTO>(produto);
+
+                return Ok(retorno);
+            }
+            else
+                return NotFound();
+        }
+
         // POST: api/Produto
         [HttpPost]
         public ActionResult<ProdutoDto> Post([FromBody]ProdutoDto value)

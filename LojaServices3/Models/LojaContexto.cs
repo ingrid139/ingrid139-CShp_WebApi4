@@ -23,8 +23,10 @@ namespace LojaServices3.Api.Models
             //confirmação de configuraão para utilizar com In Memory Database
             if (!optionsBuilder.IsConfigured)
                 optionsBuilder.UseSqlServer("Server=localhost,1433;Database=LojaServices3;User Id =sa;Password=Ing@2020;Trusted_Connection=False;");
+
+            //optionsBuilder.UseSqlite("Data Source=nome-do-arq.db");
         }
-         
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new CompraConfiguration());

@@ -31,7 +31,7 @@ namespace LojaServices3.Services
             return _context.Produtos.Where(x => x.Categoria == nome).ToList();
         }
 
-        public Produto ProcurarAleatório()
+        public Produto ProcurarAleatorio()
         {
             //lista inteira de Produtos
             var query = _context.Produtos.ToList();

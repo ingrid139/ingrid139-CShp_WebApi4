@@ -77,7 +77,7 @@ namespace LojaServices3.Controllers
         [HttpGet("aleatorio")]
         public ActionResult<ProdutoJSONDTO> GetAleatorio()
         {
-            var produto = _produtoService.ProcurarAleatório();
+            var produto = _produtoService.ProcurarAleatorio();
 
             if (produto != null)
             {
